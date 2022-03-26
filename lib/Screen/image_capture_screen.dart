@@ -14,7 +14,7 @@ class _ImageCaptureScreenState extends State<ImageCaptureScreen> {
   Future<void> _pickImg(ImageSource source) async {
     ImagePicker picker = ImagePicker();
     XFile? selected = await picker.pickImage(source: source);
-
+    print(selected!.path);
     setState(() {
       _imageFile = selected;
     });
@@ -54,6 +54,9 @@ class _ImageCaptureScreenState extends State<ImageCaptureScreen> {
       ),
 
       body: Column(
+        mainAxisAlignment: _imageFile == null
+            ? MainAxisAlignment.center
+            : MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           if (_imageFile != null) ...[
@@ -127,8 +130,36 @@ class _ImageCaptureScreenState extends State<ImageCaptureScreen> {
                 ],
               ),
             ),
-          ] else
-            ...[]
+          ] else ...[
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Wrap(
+                  children: const <Widget>[
+                    Icon(
+                      Icons.upload,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("Tap to click the Image",
+                        style: TextStyle(fontSize: 20)),
+                  ],
+                ),
+                onPressed: () async {
+                  await _pickImg(ImageSource.camera);
+                },
+              ),
+            ),
+          ]
         ],
       ),
     );
