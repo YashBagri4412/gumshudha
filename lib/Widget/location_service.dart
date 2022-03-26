@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -20,7 +22,7 @@ class LocationService extends StatelessWidget {
         } else {
           Position? position = locationSnapshot.data! as Position?;
           return Center(
-            child: Text("${position!.latitude} ${position.longitude}"),
+            child: Image.file(File(path!)),
           );
         }
       },
