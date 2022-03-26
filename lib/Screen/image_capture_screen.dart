@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:gumshudha/Screen/image_result_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageCaptureScreen extends StatefulWidget {
@@ -125,7 +126,15 @@ class _ImageCaptureScreenState extends State<ImageCaptureScreen> {
                         Text("Submit", style: TextStyle(fontSize: 20)),
                       ],
                     ),
-                    onPressed: _clear,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ImageResultScreen(_imageFile!.path),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
