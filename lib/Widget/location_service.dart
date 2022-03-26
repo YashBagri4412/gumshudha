@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:gumshudha/Widget/post_request_widget.dart';
 
 class LocationService extends StatelessWidget {
   final String? path;
@@ -22,7 +23,7 @@ class LocationService extends StatelessWidget {
         } else {
           Position? position = locationSnapshot.data! as Position?;
           return Center(
-            child: Image.file(File(path!)),
+            child: PostRequestWidget(latitude: position!.latitude.toInt(), longitude: position.longitude.toInt(), filePath: path,),
           );
         }
       },
