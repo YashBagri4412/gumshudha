@@ -17,7 +17,7 @@ class PostRequestWidget extends StatelessWidget {
     //create multipart request for POST or PATCH method
 
     var request = http.MultipartRequest("POST",
-        Uri.parse("http://www.gumshuda-corporate-mondays.herokuapp.com/img"));
+        Uri.parse("https://gumshuda-corporate-mondays.herokuapp.com/img"));
     //add location fields
     request.fields["lat"] = lat.toString();
     request.fields["long"] = long.toString();
@@ -44,11 +44,12 @@ class PostRequestWidget extends StatelessWidget {
           );
         }
         if (snapshot.hasError) {
+          print(snapshot.error.toString() + " Error from rest api");
           return Center(
-            child: Text(snapshot.hasError.toString() + "Helli"),
+            child: Text(snapshot.error.toString()),
           );
         }
-        return Center(
+        return const Center(
           child: Text("Kuch hua"),
         );
       },
