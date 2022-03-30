@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gumshudha/Screen/image_capture_screen.dart';
+import 'package:gumshudha/Screen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ImageCaptureScreen(),
+      home: const LoginScreen(),
     );
   }
 }

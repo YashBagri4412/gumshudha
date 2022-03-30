@@ -14,7 +14,10 @@ class _ImageCaptureScreenState extends State<ImageCaptureScreen> {
 
   Future<void> _pickImg(ImageSource source) async {
     ImagePicker picker = ImagePicker();
-    XFile? selected = await picker.pickImage(source: source);
+    XFile? selected = await picker.pickImage(
+      source: source,
+      //imageQuality: 20,
+    );
     print(selected!.path);
     setState(() {
       _imageFile = selected;
