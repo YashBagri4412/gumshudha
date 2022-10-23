@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gumshudha/Screen/image_capture_screen.dart';
+import 'package:gumshudha/Screen/static_file.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ImageCaptureScreen()));
+                            builder: (context) => ImageCaptureScreen()));
                   }
                 },
                 child: const Text("Login"),
