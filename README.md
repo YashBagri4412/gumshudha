@@ -27,6 +27,9 @@
 2. Feature Extraction and Comparison with effective search space reduction/optimization.
 3. Transparency into the system via Blockchain.
 
+## Link to the code of the backend used
+https://github.com/shrinivassamudra/CorporateMondays_Backend
+
 ## Screenshots of the App
 
 ![](Screenshots/login.jpg)
